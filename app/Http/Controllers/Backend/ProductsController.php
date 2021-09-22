@@ -22,6 +22,12 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required | min:5',
+            'price' => 'required | numeric',
+            'image' => 'required | image',
+            'description' => 'required'
+        ]);
         $newName = "product" . time() . "." . $request->file('image')->getClientOriginalExtension();
         $request->file('image')->move('uploads/products/', $newName);
         $inputs = [
