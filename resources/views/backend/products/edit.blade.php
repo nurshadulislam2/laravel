@@ -24,7 +24,7 @@
                 <div class="mb-3 row">
                     <label for="price" class="form-label col-sm-2">Price</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" @error('title') style="border-color: red;" value="{{$product->price}}" id="price" name="price">
+                        <input type="number" class="form-control" @error('title') style="border-color: red;" @enderror value="{{$product->price}}" id="price" name="price">
                         @error('price')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
@@ -33,7 +33,7 @@
                 <div class="mb-3 row">
                     <label for="description" class="form-label col-sm-2">Description</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" id="description" @error('description') style="border-color: red;" name="description" rows="3">{{$product->description}}</textarea>
+                        <textarea class="form-control" id="description" @error('description') style="border-color: red;" @enderror name="description" rows="3">{{$product->description}}</textarea>
                         @error('description')
                         <p class="text-danger">{{$message}}</p>
                         @enderror

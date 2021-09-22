@@ -4,6 +4,10 @@
 
 @section('main')
 
+@if(Session::has('msg'))
+<div class="bg-primary p-3 text-white my-3">{{Session::get('msg')}}</div>
+@endif
+
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>

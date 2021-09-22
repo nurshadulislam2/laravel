@@ -39,7 +39,7 @@ class ProductsController extends Controller
         ];
 
         Product::create($inputs);
-        return redirect()->route('admin.products');
+        return redirect()->route('admin.products')->with('msg', 'Product is created');
     }
 
     public function edit($id)
@@ -72,7 +72,7 @@ class ProductsController extends Controller
             $product->update(['image' => $newName]);
         }
 
-        return redirect()->route('admin.products');
+        return redirect()->route('admin.products')->with('msg', 'Product is updated');
     }
 
     public function delete($id)
@@ -81,6 +81,6 @@ class ProductsController extends Controller
         unlink('uploads/products/' . $product->image);
         $product->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('msg', 'Product is deleted');;
     }
 }
