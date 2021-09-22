@@ -50,6 +50,12 @@ class ProductsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required | min:5',
+            'price' => 'required | numeric',
+            'description' => 'required'
+        ]);
+
         $inputs = [
             'title' => $request->input('title'),
             'price' => $request->input('price'),
